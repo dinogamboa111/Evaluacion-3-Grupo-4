@@ -14,10 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementación del servicio de FormularioContacto
- * Contiene la lógica de negocio para mensajes de contacto
- */
+
 @Service
 @RequiredArgsConstructor
 @Slf4j

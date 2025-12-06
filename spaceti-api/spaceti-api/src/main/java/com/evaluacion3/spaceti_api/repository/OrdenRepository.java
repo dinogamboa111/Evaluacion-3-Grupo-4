@@ -10,10 +10,6 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Repository para Orden
- * Gestiona el acceso a datos de órdenes de compra
- */
 @Repository
 public interface OrdenRepository extends JpaRepository<Orden, Long> {
     

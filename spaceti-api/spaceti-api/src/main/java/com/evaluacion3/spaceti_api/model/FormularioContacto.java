@@ -8,10 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
-/**
- * Entidad FormularioContacto
- * Almacena mensajes enviados desde el formulario de contacto
- */
 @Entity
 @Table(name = "formulario_contacto")
 @Data

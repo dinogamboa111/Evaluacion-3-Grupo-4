@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Controller REST para Productos
- * Maneja endpoints relacionados con el catálogo de productos
- */
+
 @RestController
 @RequestMapping("/productos")
 @RequiredArgsConstructor
@@ -25,10 +22,6 @@ public class ProductoController {
 
     private final ProductoService productoService;
 
-    /**
-     * GET /api/productos
-     * Obtener todos los productos o filtrar por categoría
-     */
     @GetMapping
     public ResponseEntity<List<Producto>> obtenerProductos(
             @RequestParam(required = false) String categoria,
@@ -53,10 +46,7 @@ public class ProductoController {
         return ResponseEntity.ok(productos);
     }
 
-    /**
-     * GET /api/productos/{id}
-     * Obtener un producto por ID
-     */
+
     @GetMapping("/{id}")
     public ResponseEntity<Producto> obtenerProductoPorId(@PathVariable Long id) {
         log.info("GET /api/productos/{}", id);
@@ -67,10 +57,7 @@ public class ProductoController {
         return ResponseEntity.ok(producto);
     }
 
-    /**
-     * GET /api/productos/categorias
-     * Obtener todas las categorías disponibles
-     */
+    
     @GetMapping("/categorias")
     public ResponseEntity<List<String>> obtenerCategorias() {
         log.info("GET /api/productos/categorias");
@@ -78,10 +65,7 @@ public class ProductoController {
         return ResponseEntity.ok(categorias);
     }
 
-    /**
-     * POST /api/productos
-     * Crear un nuevo producto
-     */
+    
     @PostMapping
     public ResponseEntity<Producto> crearProducto(@Valid @RequestBody Producto producto) {
         log.info("POST /api/productos - Creando: {}", producto.getNombre());
@@ -90,10 +74,7 @@ public class ProductoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(productoCreado);
     }
 
-    /**
-     * PUT /api/productos/{id}
-     * Actualizar un producto existente
-     */
+    
     @PutMapping("/{id}")
     public ResponseEntity<Producto> actualizarProducto(
             @PathVariable Long id,
@@ -105,10 +86,7 @@ public class ProductoController {
         return ResponseEntity.ok(productoActualizado);
     }
 
-    /**
-     * DELETE /api/productos/{id}
-     * Eliminar un producto
-     */
+    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
         log.info("DELETE /api/productos/{}", id);

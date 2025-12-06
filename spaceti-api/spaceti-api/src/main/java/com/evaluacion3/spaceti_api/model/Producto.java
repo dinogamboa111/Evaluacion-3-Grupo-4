@@ -9,10 +9,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * Entidad Producto
- * Representa un producto en el catálogo de la tienda
- */
 @Entity
 @Table(name = "producto")
 @Data

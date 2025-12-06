@@ -13,10 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Entidad Orden
- * Representa una orden de compra realizada
- */
+
 @Entity
 @Table(name = "orden")
 @Data

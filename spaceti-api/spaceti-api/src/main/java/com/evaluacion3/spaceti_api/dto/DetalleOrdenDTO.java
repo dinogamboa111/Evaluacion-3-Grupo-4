@@ -5,9 +5,7 @@ import lombok.*;
 
 import java.math.BigDecimal;
 
-/**
- * DTO para transferir información de un item de orden
- */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

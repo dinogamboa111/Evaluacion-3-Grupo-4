@@ -3,9 +3,7 @@ package com.evaluacion3.spaceti_api.dto;
 import jakarta.validation.constraints.*;
 import lombok.*;
 
-/**
- * DTO para recibir datos del formulario de contacto
- */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

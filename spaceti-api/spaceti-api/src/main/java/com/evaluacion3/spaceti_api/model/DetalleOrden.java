@@ -8,10 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.math.BigDecimal;
 
-/**
- * Entidad DetalleOrden
- * Representa un item individual dentro de una orden
- */
+
 @Entity
 @Table(name = "detalle_orden")
 @Data

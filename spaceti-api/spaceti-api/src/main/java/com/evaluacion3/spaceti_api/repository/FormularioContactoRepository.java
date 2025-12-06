@@ -6,10 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Repository para FormularioContacto
- * Gestiona el acceso a datos de mensajes de contacto
- */
 @Repository
 public interface FormularioContactoRepository extends JpaRepository<FormularioContacto, Long> {
     

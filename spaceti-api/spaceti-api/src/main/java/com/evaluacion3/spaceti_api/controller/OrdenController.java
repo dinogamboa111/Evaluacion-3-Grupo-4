@@ -15,17 +15,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-
 @RestController
 @RequestMapping("/ordenes")
 @RequiredArgsConstructor
 @Slf4j
-@CrossOrigin(origins = "*")
 public class OrdenController {
 
     private final OrdenService ordenService;
 
-    
     @PostMapping
     public ResponseEntity<OrdenResponse> crearOrden(@Valid @RequestBody OrdenRequest request) {
         log.info("POST /api/ordenes - Creando orden con {} items", request.getItems().size());
@@ -34,7 +31,6 @@ public class OrdenController {
         return ResponseEntity.status(HttpStatus.CREATED).body(ordenCreada);
     }
 
-    
     @GetMapping
     public ResponseEntity<List<Orden>> obtenerOrdenes(
             @RequestParam(required = false) String estado) {
@@ -52,7 +48,6 @@ public class OrdenController {
         return ResponseEntity.ok(ordenes);
     }
 
-    
     @GetMapping("/{id}")
     public ResponseEntity<OrdenResponse> obtenerOrdenPorId(@PathVariable Long id) {
         log.info("GET /api/ordenes/{}", id);
@@ -63,7 +58,6 @@ public class OrdenController {
         return ResponseEntity.ok(orden);
     }
 
-    
     @PatchMapping("/{id}/estado")
     public ResponseEntity<Orden> cambiarEstado(
             @PathVariable Long id,
@@ -76,7 +70,6 @@ public class OrdenController {
         return ResponseEntity.ok(ordenActualizada);
     }
 
-    
     @GetMapping("/estadisticas")
     public ResponseEntity<Map<String, Object>> obtenerEstadisticas() {
         log.info("GET /api/ordenes/estadisticas");

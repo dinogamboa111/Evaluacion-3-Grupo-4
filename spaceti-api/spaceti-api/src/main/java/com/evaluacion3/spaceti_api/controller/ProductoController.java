@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/productos")
 @RequiredArgsConstructor
 @Slf4j
-@CrossOrigin(origins = "*")
 public class ProductoController {
 
     private final ProductoService productoService;
@@ -46,7 +44,6 @@ public class ProductoController {
         return ResponseEntity.ok(productos);
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Producto> obtenerProductoPorId(@PathVariable Long id) {
         log.info("GET /api/productos/{}", id);
@@ -57,7 +54,6 @@ public class ProductoController {
         return ResponseEntity.ok(producto);
     }
 
-    
     @GetMapping("/categorias")
     public ResponseEntity<List<String>> obtenerCategorias() {
         log.info("GET /api/productos/categorias");
@@ -65,7 +61,6 @@ public class ProductoController {
         return ResponseEntity.ok(categorias);
     }
 
-    
     @PostMapping
     public ResponseEntity<Producto> crearProducto(@Valid @RequestBody Producto producto) {
         log.info("POST /api/productos - Creando: {}", producto.getNombre());
@@ -74,7 +69,6 @@ public class ProductoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(productoCreado);
     }
 
-    
     @PutMapping("/{id}")
     public ResponseEntity<Producto> actualizarProducto(
             @PathVariable Long id,
@@ -86,7 +80,6 @@ public class ProductoController {
         return ResponseEntity.ok(productoActualizado);
     }
 
-    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
         log.info("DELETE /api/productos/{}", id);

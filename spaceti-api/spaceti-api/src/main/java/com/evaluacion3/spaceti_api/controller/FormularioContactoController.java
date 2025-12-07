@@ -14,24 +14,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-
 @RestController
 @RequestMapping("/contacto")
 @RequiredArgsConstructor
 @Slf4j
-@CrossOrigin(origins = "*")
 public class FormularioContactoController {
 
     private final FormularioContactoService contactoService;
 
-    
     @PostMapping
     public ResponseEntity<Map<String, Object>> enviarMensaje(@Valid @RequestBody ContactoRequest request) {
         log.info("POST /api/contacto - Mensaje de: {}", request.getEmail());
         
         FormularioContacto contacto = contactoService.crear(request);
         
-        // Respuesta de éxito
         Map<String, Object> response = Map.of(
             "success", true,
             "message", "Mensaje enviado exitosamente. Te contactaremos pronto.",
@@ -41,7 +37,6 @@ public class FormularioContactoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    
     @GetMapping
     public ResponseEntity<List<FormularioContacto>> obtenerMensajes(
             @RequestParam(required = false) String estado) {
@@ -59,7 +54,6 @@ public class FormularioContactoController {
         return ResponseEntity.ok(mensajes);
     }
 
-    
     @GetMapping("/{id}")
     public ResponseEntity<FormularioContacto> obtenerMensajePorId(@PathVariable Long id) {
         log.info("GET /api/contacto/{}", id);
@@ -70,7 +64,6 @@ public class FormularioContactoController {
         return ResponseEntity.ok(mensaje);
     }
 
-    
     @PatchMapping("/{id}/estado")
     public ResponseEntity<FormularioContacto> cambiarEstado(
             @PathVariable Long id,
@@ -83,7 +76,6 @@ public class FormularioContactoController {
         return ResponseEntity.ok(mensajeActualizado);
     }
 
-    
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMensaje(@PathVariable Long id) {
         log.info("DELETE /api/contacto/{}", id);
